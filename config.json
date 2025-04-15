@@ -1,0 +1,13 @@
+{
+  "num_agents": 100,
+  "linking_strategy": "homophily",
+  "time_steps": 55,
+  "dynamic": true,
+  "edge_weights": true,
+  "output_format": "graphml",
+  "p": 0.06,
+  "edges_per_step": 4,
+  "homophily_groups": 7,
+  "p_in": 0.15,
+  "p_out": 0.05
+}
