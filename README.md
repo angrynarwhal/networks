@@ -57,21 +57,21 @@ The [Python code](network-agents.py) puts all these pieces together. The code is
 
 
 In general, the JSON config includes the following keys:
-	 - num_agents (int): Number of agent nodes in the network (e.g. 100).
-	 - linking_strategy (string): Strategy for link formation – "random", "preferential_attachment", or "homophily" (as described above).
-	 - time_steps (int): Number of time steps to simulate (if dynamic is true). If dynamic is false, this can be 1 (or omitted) since the network is generated in one go.
-	 - dynamic (bool): true to simulate the network evolution over multiple time steps; false to generate a static network.
-	 - edge_weights (bool): true if edges should have weight attributes (the program will assign or accumulate weights as it runs); false for unweighted edges.
-	 - Strategy-specific parameters (optional): Depending on the chosen strategy, additional fields can be provided:
-	 - If "linking_strategy": "random" – you can specify p (float between 0 and 1) as the probability for any given directed edge to exist. For dynamic simulations, this probability is applied at each time step per agent.
-	 - If "linking_strategy": "preferential_attachment" – you can specify edges_per_step (int, often denoted m) which is the number of edges each new node will create when it joins. A higher edges_per_step means new nodes try to attach to more existing nodes.
-	 - If "linking_strategy": "homophily" – you may specify homophily_groups (int) to set how many groups or categories agents are divided into, p_in (float) as the probability of a link between same-group agents, and p_out (float) as the probability of a link between different-group agents. Typically, you choose p_in > p_out to enforce homophily (more likely connections within groups).
+- num_agents (int): Number of agent nodes in the network (e.g. 100).
+- linking_strategy (string): Strategy for link formation – "random", "preferential_attachment", or "homophily" (as described above).
+- time_steps (int): Number of time steps to simulate (if dynamic is true). If dynamic is false, this can be 1 (or omitted) since the network is generated in one go.
+- dynamic (bool): true to simulate the network evolution over multiple time steps; false to generate a static network.
+- edge_weights (bool): true if edges should have weight attributes (the program will assign or accumulate weights as it runs); false for unweighted edges.
+- Strategy-specific parameters (optional): Depending on the chosen strategy, additional fields can be provided:
+- If "linking_strategy": "random" – you can specify p (float between 0 and 1) as the probability for any given directed edge to exist. For dynamic simulations, this probability is applied at each time step per agent.
+- If "linking_strategy": "preferential_attachment" – you can specify edges_per_step (int, often denoted m) which is the number of edges each new node will create when it joins. A higher edges_per_step means new nodes try to attach to more existing nodes.
+- If "linking_strategy": "homophily" – you may specify homophily_groups (int) to set how many groups or categories agents are divided into, p_in (float) as the probability of a link between same-group agents, and p_out (float) as the probability of a link between different-group agents. Typically, you choose p_in > p_out to enforce homophily (more likely connections within groups).
 
 You can create a JSON file (e.g., config.json) with the desired parameters as above.
 
 ### Usage Instructions
-	1.	Prepare the configuration: Save your JSON configuration to a file (for example, config.json). Adjust the parameters and strategy as needed for your scenario (see the sample and parameter descriptions above).
-	2.	Run the Python program: Execute the script with the JSON file path as an argument. For example, if the code is saved as generate_network.py, run:
+1.	Prepare the configuration: Save your JSON configuration to a file (for example, config.json). Adjust the parameters and strategy as needed for your scenario (see the sample and parameter descriptions above).
+2.	Run the Python program: Execute the script with the JSON file path as an argument. For example, if the code is saved as generate_network.py, run:
 
 ```bash
 python generate_network.py config.json
